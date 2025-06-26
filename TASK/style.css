@@ -1,0 +1,532 @@
+:root {
+    --primary-color: #4285f4;
+    --secondary-color: #34a853;
+    --accent-color: #ea4335;
+    --warning-color: #fbbc05;
+    --dark-color: #202124;
+    --light-color: #f8f9fa;
+    --gray-color: #5f6368;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+/* --- Home Page Specific Styles --- */
+
+.hero-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque for hero */
+    border-radius: var(--border-radius);
+    margin-bottom: 3rem;
+    box-shadow: var(--box-shadow);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-content .lead {
+    font-size: 1.5rem;
+    color: var(--gray-color);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 30px; /* More rounded buttons */
+    margin: 0 0.75rem; /* Space between buttons */
+}
+
+.features-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.features-section h2 {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    background-color: var(--light-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    font-size: 1.6rem;
+    color: var(--dark-color);
+    margin-bottom: 0.75rem;
+}
+
+.feature-item p {
+    color: var(--gray-color);
+    font-size: 1rem;
+}
+
+.call-to-action-bottom {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 3rem;
+}
+
+.call-to-action-bottom p {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Responsive adjustments for home page */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content .lead {
+        font-size: 1.3rem;
+    }
+    .features-section h2 {
+        font-size: 2rem;
+    }
+    .btn-lg {
+        font-size: 1.1rem;
+        padding: 0.9rem 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 4rem 1rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content .lead {
+        font-size: 1.1rem;
+    }
+    .btn-lg {
+        display: block; /* Stack buttons on small screens */
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 300px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr; /* Single column layout for features */
+    }
+    .features-section h2 {
+        font-size: 1.8rem;
+    }
+    .call-to-action-bottom p {
+        font-size: 1.5rem;
+    }
+}
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: var(--dark-color);
+    line-height: 1.6;
+    /* Background Image Styles */
+    background-image: url('background.jpg'); /* Your background image file */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent background */
+    box-shadow: var(--box-shadow);
+    padding: 0.8rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Optional: adds a blur effect for frosted glass look */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.navbar-brand i {
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.navbar-links a {
+    color: var(--gray-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+}
+
+.navbar-links a:hover {
+    color: var(--primary-color);
+}
+
+.navbar-links a.active {
+    color: var(--primary-color);
+}
+
+.navbar-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white background for content */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 2rem; /* Add some space below the navbar */
+    margin-bottom: 2rem;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 2rem;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+/* Task List Styles */
+.task-list {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th {
+    background-color: var(--light-color);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 500;
+    color: var(--gray-color);
+}
+
+.task-table td {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.task-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.task-status {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.task-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--light-color);
+    color: var(--gray-color);
+    margin-right: 0.5rem;
+    text-decoration: none; /* Remove underline from links */
+    transition: var(--transition);
+}
+
+.task-actions a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Form Styles */
+.task-form {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--gray-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none; /* For button-like links */
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3367d6;
+}
+
+.btn-secondary {
+    background-color: var(--light-color);
+    color: var(--gray-color);
+}
+
+.btn-secondary:hover {
+    background-color: #e9ecef;
+}
+
+.btn i {
+    margin-right: 0.5rem;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+
+/* Empty State Styles */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 2rem;
+}
+
+.empty-state .empty-icon {
+    font-size: 4rem;
+    color: var(--gray-color);
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--gray-color);
+    margin-bottom: 1.5rem;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0.8rem 1rem;
+    }
+    
+    .navbar-links {
+        /* You might want to implement a hamburger menu for mobile */
+        display: none; 
+    }
+    
+    /* Example for a mobile menu button - you'd need JavaScript to toggle it */
+    /* .mobile-menu-button {
+        display: block;
+    } */
+    
+    .task-table {
+        display: block;
+        overflow-x: auto; /* Allows horizontal scrolling for tables on small screens */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.task-item {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Loading Spinner (if you plan to use it) */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#loading-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(66, 133, 244, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
